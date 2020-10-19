@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">SATourismApp</string>
+    <string-array name="spinneroptions">
+        <item>Eastern Cape</item>
+        <item>Free State</item>
+        <item>Gauteng</item>
+        <item>KwaZulu Natal</item>
+        <item>Limpopo</item>
+        <item>Mpumalanga</item>
+        <item>Northern Cape</item>
+        <item>North West</item>
+        <item>Savings to Current</item>
+    </string-array>
 </resources>
