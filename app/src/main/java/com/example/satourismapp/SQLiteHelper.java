@@ -50,17 +50,14 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     }
 
     //Getting Places Method.
-    public PlaceDetails getPLaceDetails (String id){
+    public PlaceDetails getPLaceDetails (PlaceDetails _place){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cs = db.query(TABLE_NAME, new String[] { KEY_ID,
                         KEY_PROVINCE, KEY_PLACE }, KEY_ID + "=?",
-                new String[] { String.valueOf(id) }, null, null, null, null);
+                new String[] { _place.ID }, null, null, null, null);
 
-        if (cs !=null ){
             cs.moveToFirst();
-            PlaceDetails user = new PlaceDetails(cs.getString(0),cs.getString(1),cs.getString(2));
-            return user;
-        }
-        return null;
+            PlaceDetails _place1 = new PlaceDetails(cs.getString(0),cs.getString(1),cs.getString(2));
+            return _place1;
     }
 }

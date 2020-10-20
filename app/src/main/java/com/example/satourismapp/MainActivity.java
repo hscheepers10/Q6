@@ -6,22 +6,28 @@ import android.os.Bundle;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.net.IDN;
+
 public class MainActivity extends AppCompatActivity {
 
     //Declare variables.
     SQLiteHelper sqLiteHelper;
-    TextView resTv;
-    Spinner spinner;
-    int spinnerValue;
+    TextView result;
+    Spinner transferOption;
+
+    int spinnerChoice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        result = findViewById(R.id.resTv);
+
         //Adding Places.
         sqLiteHelper = new SQLiteHelper(this);
 
+        //Populating Database.
         sqLiteHelper.addPlace(new PlaceDetails("1","Gauteng","Union Buildings"));
         sqLiteHelper.addPlace(new PlaceDetails("2","Western Cape","Table Mountain"));
         sqLiteHelper.addPlace(new PlaceDetails("3","KwaZulu Natal","uShaka Marine World"));
@@ -32,15 +38,25 @@ public class MainActivity extends AppCompatActivity {
         sqLiteHelper.addPlace(new PlaceDetails("8","North West","Sun City Resort"));
         sqLiteHelper.addPlace(new PlaceDetails("9","Free State","Free State National Botanical Garden"));
 
-        //Getting data from DB.
-        spinnerValue = spinner.getSelectedItemPosition();
-        switch (spinnerValue){
+
+        transferOption = (findViewById(R.id.spinner));
+        spinnerChoice = transferOption.getSelectedItemPosition();
+
+        PlaceDetails curPlace;
+        String id;
+        switch (spinnerChoice){
             case 0:
-
-
-//                PlaceDetails place1 = sqLiteHelper.getPLaceDetails(new PlaceDetails("1",null,null));
-                resTv = sqLiteHelper.getPLaceDetails(new PlaceDetails("1",null,null).getPlace());
+                id = "1";
+                curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(id,null,null));
+                result.setText(curPlace.getPlace());
+                break;
+            case 1:
+                id = "2";
+                curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(id,null,null));
+                result.setText(curPlace.getPlace());
                 break;
         }
+
+
     }
 }

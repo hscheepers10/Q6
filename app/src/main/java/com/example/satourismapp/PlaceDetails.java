@@ -10,7 +10,7 @@ public class PlaceDetails {
     public PlaceDetails(String id,String province, String place){
         this.ID = id;
         this.Province = province;
-        this.Place = province;
+        this.Place = place;
     }
 
     //Getters.
