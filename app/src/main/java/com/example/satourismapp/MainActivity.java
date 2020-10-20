@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     SQLiteHelper sqLiteHelper;
     TextView result;
     Spinner transferOption;
-
+    String id;
     int spinnerChoice;
 
     @Override
@@ -44,19 +44,52 @@ public class MainActivity extends AppCompatActivity {
 
         PlaceDetails curPlace;
         String id;
-        switch (spinnerChoice){
-            case 0:
-                id = "1";
-                curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(id,null,null));
-                result.setText(curPlace.getPlace());
-                break;
-            case 1:
-                id = "2";
-                curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(id,null,null));
-                result.setText(curPlace.getPlace());
-                break;
-        }
-
-
-    }
+            switch (spinnerChoice) {
+                case 0:
+                    id = "1";
+                    curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(id, null, null));
+                    result.setText(curPlace.getPlace());
+                    break;
+                case 1:
+                    id = "2";
+                    curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(id, null, null));
+                    result.setText(curPlace.getPlace());
+                    break;
+                case 2:
+                    id = "3";
+                    curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(id, null, null));
+                    result.setText(curPlace.getPlace());
+                    break;
+                case 3:
+                    id = "4";
+                    curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(id, null, null));
+                    result.setText(curPlace.getPlace());
+                    break;
+                case 4:
+                    id = "5";
+                    curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(id, null, null));
+                    result.setText(curPlace.getPlace());
+                    break;
+                case 5:
+                    id = "6";
+                    curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(id, null, null));
+                    result.setText(curPlace.getPlace());
+                    break;
+                case 6:
+                    id = "7";
+                    curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(id, null, null));
+                    result.setText(curPlace.getPlace());
+                    break;
+                case 7:
+                    id = "8";
+                    curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(id, null, null));
+                    result.setText(curPlace.getPlace());
+                    break;
+                case 8:
+                    id = "9";
+                    curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(id, null, null));
+                    result.setText(curPlace.getPlace());
+                    break;
+            }
+   }
 }
