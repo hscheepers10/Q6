@@ -23,10 +23,10 @@ public class MainActivity extends AppCompatActivity {
 
         result = findViewById(R.id.resTv);
 
-        //Adding Places.
+        //Adding Places through the SQLite helper class.
         sqLiteHelper = new SQLiteHelper(this);
 
-        //Populating Database.
+        //Populating Database using the addPlace method in the SQLite helper class.
         sqLiteHelper.addPlace(new PlaceDetails("1","Gauteng","Union Buildings"));
         sqLiteHelper.addPlace(new PlaceDetails("2","Western Cape","Table Mountain"));
         sqLiteHelper.addPlace(new PlaceDetails("3","KwaZulu Natal","uShaka Marine World"));
@@ -37,14 +37,19 @@ public class MainActivity extends AppCompatActivity {
         sqLiteHelper.addPlace(new PlaceDetails("8","North West","Sun City Resort"));
         sqLiteHelper.addPlace(new PlaceDetails("9","Free State","Free State National Botanical Garden"));
 
+        //finding spinner in XML.
         provinceSpinner = (findViewById(R.id.spinner));
 
+        //Spinner gets its onItemSelectedListener.
         provinceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             PlaceDetails curPlace;
             String sid;
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 spinnerChoice = provinceSpinner.getSelectedItemPosition();
+
+                //Switch statement uses the spinnerChoice value to determine which case needs to be used.
+                //the spinnerChoice value is derived from the spinner in XML's current position.
                 switch (spinnerChoice){
                     case 0:
                         sid = "1";
@@ -93,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
             }
-
+            //If no item is selected, nothing is supposed to happen but this method is a package deal.
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 result.setText("Naaani");
