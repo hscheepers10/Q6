@@ -3,18 +3,17 @@ package com.example.satourismapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.TextView;
-
-import java.net.IDN;
 
 public class MainActivity extends AppCompatActivity {
 
     //Declare variables.
     SQLiteHelper sqLiteHelper;
     TextView result;
-    Spinner transferOption;
-    String id;
+    Spinner provinceSpinner;
     int spinnerChoice;
 
     @Override
@@ -38,58 +37,67 @@ public class MainActivity extends AppCompatActivity {
         sqLiteHelper.addPlace(new PlaceDetails("8","North West","Sun City Resort"));
         sqLiteHelper.addPlace(new PlaceDetails("9","Free State","Free State National Botanical Garden"));
 
+        provinceSpinner = (findViewById(R.id.spinner));
 
-        transferOption = (findViewById(R.id.spinner));
-        spinnerChoice = transferOption.getSelectedItemPosition();
+        provinceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            PlaceDetails curPlace;
+            String sid;
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                spinnerChoice = provinceSpinner.getSelectedItemPosition();
+                switch (spinnerChoice){
+                    case 0:
+                        sid = "1";
+                        curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(sid, null, null));
+                        result.setText(curPlace.getPlace());
+                        break;
+                    case 1:
+                        sid = "2";
+                        curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(sid, null, null));
+                        result.setText(curPlace.getPlace());
+                        break;
+                    case 2:
+                        sid = "3";
+                        curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(sid, null, null));
+                        result.setText(curPlace.getPlace());
+                        break;
+                    case 3:
+                        sid = "4";
+                        curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(sid, null, null));
+                        result.setText(curPlace.getPlace());
+                        break;
+                    case 4:
+                        sid = "5";
+                        curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(sid, null, null));
+                        result.setText(curPlace.getPlace());
+                        break;
+                    case 5:
+                        sid = "6";
+                        curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(sid, null, null));
+                        result.setText(curPlace.getPlace());
+                        break;
+                    case 6:
+                        sid = "7";
+                        curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(sid, null, null));
+                        result.setText(curPlace.getPlace());
+                        break;
+                    case 7:
+                        sid = "8";
+                        curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(sid, null, null));
+                        result.setText(curPlace.getPlace());
+                        break;
+                    case 8:
+                        sid = "9";
+                        curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(sid, null, null));
+                        result.setText(curPlace.getPlace());
+                        break;
+                }
+            }
 
-//        PlaceDetails curPlace;
-//        String id;
-//            switch (spinnerChoice) {
-//            case 0:
-//                id = "1";
-//                curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(id, null, null));
-//                result.setText(curPlace.getPlace());
-//                break;
-//            case 1:
-//                id = "2";
-//                curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(id, null, null));
-//                result.setText(curPlace.getPlace());
-//                break;
-//            case 2:
-//                id = "3";
-//                curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(id, null, null));
-//                result.setText(curPlace.getPlace());
-//                break;
-//            case 3:
-//                id = "4";
-//                curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(id, null, null));
-//                result.setText(curPlace.getPlace());
-//                break;
-//            case 4:
-//                id = "5";
-//                curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(id, null, null));
-//                result.setText(curPlace.getPlace());
-//                break;
-//            case 5:
-//                id = "6";
-//                curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(id, null, null));
-//                result.setText(curPlace.getPlace());
-//                break;
-//            case 6:
-//                id = "7";
-//                curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(id, null, null));
-//                result.setText(curPlace.getPlace());
-//                break;
-//            case 7:
-//                id = "8";
-//                curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(id, null, null));
-//                result.setText(curPlace.getPlace());
-//                break;
-//            case 8:
-//                id = "9";
-//                curPlace = sqLiteHelper.getPLaceDetails(new PlaceDetails(id, null, null));
-//                result.setText(curPlace.getPlace());
-//                break;
-//        }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                result.setText("Naaani");
+            }
+        });
    }
 }
