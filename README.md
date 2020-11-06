@@ -1,2 +1,2 @@
 Q6
-Drop down spinner element to display differentcontries provinces and points of interrest.  
+Drop down spinner element to display different provinces and points of interrest.  
